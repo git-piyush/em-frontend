@@ -1,25 +1,24 @@
 <div class="col-md-6 offset-md-3">
-    <h3> Create Employee </h3>
+    <h3> Add Question </h3>
     <form (ngSubmit) = "onSubmit()">
     
         <div class="form-group">
-            <label> First Name</label>
+            <label> Question</label>
             <input type="text" class ="form-control" id = "firstName"
                 [(ngModel)] = "employee.firstName" name = "firstName">
         </div>
     
         <div class="form-group">
-            <label> Last Name</label>
+            <label> Q. Type</label>
             <input type="text" class ="form-control" id = "lastName"
                 [(ngModel)] = "employee.lastName" name = "lastName">
         </div>
-    
         <div class="form-group">
-            <label> Email Id</label>
-            <input type="text" class ="form-control" id = "emailId"
-                [(ngModel)] = "employee.emailId" name = "emailId">
+            <label> Answer</label>
+            <textarea rows="4" cols="50" class ="form-control" id = "emailId"
+            [(ngModel)] = "employee.emailId" name = "emailId">
+                Enter Your answer here...</textarea>
         </div>
-    
         <button class = "btn btn-success" type ="submit">Submit</button>
     
     </form>
