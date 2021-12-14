@@ -14,7 +14,7 @@
     </form>
 </div>
 
-<h2>Question List</h2>
+<h2>Question List</h2><pagination-controls (pageChange)="employee=$event" class="center"></pagination-controls>
 <table class = "table table-striped">
     <thead>
         <tr>
@@ -25,7 +25,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let employee of employees" >
+        <tr *ngFor = "let employee of employees | paginate:{itemsPerPage: 5, currentPage:employee}" >
             <td> {{ employee.firstName }} </td>
             <td> {{ employee.lastName }} </td>
             <td> {{ employee.emailId | slice:0:20}}... </td>
@@ -37,5 +37,6 @@
         </tr>
     </tbody>
 </table>
+
 
 
