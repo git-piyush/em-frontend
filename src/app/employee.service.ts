@@ -9,11 +9,18 @@ import { Employee } from './employee';
 export class EmployeeService {
 
   private baseURL = "https://employeee-management.herokuapp.com/api/v1/employees";
+  private baseURL1 = "https://employeee-management.herokuapp.com/api/v1/employees/bytype";
+ // private baseURL = "http://localhost:8080/api/v1/employees";
+  //private baseURL1 = "http://localhost:8080/api/v1/employees/bytype";
 
   constructor(private httpClient: HttpClient) { }
   
   getEmployeesList(): Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+  }
+
+  getEmployeesListByType(lastName: String): Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(`${this.baseURL1}/${lastName}`);
   }
 
   createEmployee(employee: Employee): Observable<Object>{

@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-
+  employee: Employee = new Employee();
   employees: Employee[];
 
   constructor(private employeeService: EmployeeService,
@@ -20,6 +20,12 @@ export class EmployeeListComponent implements OnInit {
 
   private getEmployees(){
     this.employeeService.getEmployeesList().subscribe(data => {
+      this.employees = data;
+    });
+  }
+
+  private getEmployeesListByType(lastName: String){
+    this.employeeService.getEmployeesListByType(lastName).subscribe(data => {
       this.employees = data;
     });
   }
@@ -38,4 +44,11 @@ export class EmployeeListComponent implements OnInit {
       this.getEmployees();
     })
   }
+
+  onSubmitMethod(){
+    console.log("hello world");
+    console.log(this.employee.lastName);
+    this.getEmployeesListByType(this.employee.lastName);
+  }
+
 }
