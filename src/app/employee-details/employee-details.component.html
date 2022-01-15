@@ -9,4 +9,8 @@
     <div>
         <label> <b> Answer: </b></label><br><textarea rows="10" cols="80">{{employee.emailId}}</textarea> 
     </div>
+    <div>
+        <button (click) = "getPreviousQuestionById(employee.id)" class = "btn btn-info" style="margin-left: 10px">Previous Question</button>
+        <button (click) = "getNextQuestionById(employee.id)" class = "btn btn-info" style="margin-left: 10px">Next Question</button>
+    </div>
 </div>

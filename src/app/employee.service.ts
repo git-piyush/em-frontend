@@ -8,10 +8,8 @@ import { Employee } from './employee';
 })
 export class EmployeeService {
 
-   private baseURL = "https://employeee-management.herokuapp.com/api/v1/piyush";
-   private baseURL1 = "https://employeee-management.herokuapp.com/api/v1/piyush/bytype";
-  //private baseURL = "http://localhost:8080/api/v1/employees";
-  //private baseURL1 = "http://localhost:8080/api/v1/employees/bytype";
+  private baseURL = "https://employeee-management.herokuapp.com/api/v1/piyush";
+ // private baseURL = "http://localhost:8080/api/v1/piyush";
 
   constructor(private httpClient: HttpClient) { }
   
@@ -20,7 +18,7 @@ export class EmployeeService {
   }
 
   getEmployeesListByType(lastName: String): Observable<Employee[]>{
-    return this.httpClient.get<Employee[]>(`${this.baseURL1}/${lastName}`);
+    return this.httpClient.get<Employee[]>(`${this.baseURL}/bytype/${lastName}`);
   }
 
   createEmployee(employee: Employee): Observable<Object>{
@@ -29,6 +27,14 @@ export class EmployeeService {
 
   getEmployeeById(id: number): Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
+  }
+
+  getNextQuestionById(id: number): Observable<Employee>{
+    return this.httpClient.get<Employee>(`${this.baseURL}/next/${id}`);
+  }
+
+  getPreviousQuestionById(id: number): Observable<Employee>{
+    return this.httpClient.get<Employee>(`${this.baseURL}/previous/${id}`);
   }
 
   updateEmployee(id: number, employee: Employee): Observable<Object>{
