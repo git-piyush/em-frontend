@@ -3,6 +3,7 @@ import { Employee } from '../employee';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 import { Router } from '@angular/router';
+import { EmployeeListComponent } from '../employee-list/employee-list.component';
 
 @Component({
   selector: 'app-employee-details',
@@ -38,6 +39,9 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeService.getPreviousQuestionById(id).subscribe( data => {
       this.employee = data;
     });  
+  } 
+  updateEmployee(id: number){
+    this.router.navigate(['update-employee', id]);   
   }
 
 }
