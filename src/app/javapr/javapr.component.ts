@@ -36,9 +36,12 @@ export class JavaprComponent implements OnInit {
   }
 
   deleteEmployee(id: number){
-    this.employeeService.deleteEmployee(id).subscribe( data => {
-      console.log(data);
-      this.getEmployees();
-    })
+    let dl = confirm("Are you sure that you want to delete this Question?");
+    if(dl){
+      this.employeeService.deleteEmployee(id).subscribe( data => {
+        console.log(data);
+        this.getEmployees();
+      })
+    }
   }
 }
