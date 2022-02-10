@@ -9,6 +9,14 @@ import { FormsModule} from '@angular/forms';
 import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component'
 import { NgxPaginationModule } from 'ngx-pagination';
+import { JavaintroComponent } from './javaintro/javaintro.component';
+import { JavabasicsComponent } from './javabasics/javabasics.component';
+import { JavaoopsComponent } from './javaoops/javaoops.component';
+import { AdvancedjavaComponent } from './advancedjava/advancedjava.component';
+import { JavaprComponent } from './javapr/javapr.component';
+import { AngularintroComponent } from './angularintro/angularintro.component';
+import { MysqlComponent } from './mysql/mysql.component';
+import { MongodbComponent } from './mongodb/mongodb.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +24,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EmployeeListComponent,
     CreateEmployeeComponent,
     UpdateEmployeeComponent,
-    EmployeeDetailsComponent
+    EmployeeDetailsComponent,
+    JavaintroComponent,
+    JavabasicsComponent,
+    JavaoopsComponent,
+    AdvancedjavaComponent,
+    JavaprComponent,
+    AngularintroComponent,
+    MysqlComponent,
+    MongodbComponent
   ],
   imports: [
     BrowserModule,
