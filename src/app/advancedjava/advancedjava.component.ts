@@ -28,7 +28,7 @@ export class AdvancedjavaComponent implements OnInit {
   }
 
   employeeDetails(id: number){
-    this.router.navigate(['employee-details', id]);
+    this.router.navigate(['employee-details/type', id]);
   }
 
   updateEmployee(id: number){

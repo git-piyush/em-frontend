@@ -33,9 +33,20 @@ export class EmployeeService {
     return this.httpClient.get<Employee>(`${this.baseURL}/next/${id}`);
   }
 
+  getNextQuestionByIdAndType(type:String,id: number): Observable<Employee>{
+    console.log(type);
+    console.log(id);
+    return this.httpClient.get<Employee>(`${this.baseURL}/next/${type}/${id}`);
+  }
+
   getPreviousQuestionById(id: number): Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.baseURL}/previous/${id}`);
   }
+
+  getPreviousQuestionByIdAndType(type:String,id: number): Observable<Employee>{
+    return this.httpClient.get<Employee>(`${this.baseURL}/previous/${type}/${id}`);
+  }
+
 
   updateEmployee(id: number, employee: Employee): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}`, employee);

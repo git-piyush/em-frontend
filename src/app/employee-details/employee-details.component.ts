@@ -25,21 +25,39 @@ export class EmployeeDetailsComponent implements OnInit {
     });
   }
 
-  getNextQuestionById(id: number){
-    
-    this.employee = new Employee();
-    this.employeService.getNextQuestionById(id).subscribe( data => {
-      this.employee = data;
-    });  
+  getNextQuestionByIdAndType(type:String, id: number){
+    let currentUrl = this.router.url;
+    if(currentUrl.includes("type")){
+      this.employee = new Employee();
+      this.employeService.getNextQuestionByIdAndType(type,id).subscribe( data => {
+        this.employee = data;
+      });
+    }else{
+      this.employee = new Employee();
+      this.employeService.getNextQuestionById(id).subscribe( data => {
+        this.employee = data;
+      });
+    }
+      
   }
 
-  getPreviousQuestionById(id: number){
+  getPreviousQuestionByIdAndType(type:String, id: number){
     
-    this.employee = new Employee();
+    let currentUrl = this.router.url;
+    if(currentUrl.includes("type")){
+      this.employee = new Employee();
+      this.employeService.getPreviousQuestionByIdAndType(type,id).subscribe( data => {
+        this.employee = data;
+      });
+    }else{
+      this.employee = new Employee();
     this.employeService.getPreviousQuestionById(id).subscribe( data => {
       this.employee = data;
-    });  
+    }); 
+    } 
   } 
+
+
   updateEmployee(id: number){
     this.router.navigate(['update-employee', id]);   
   }
