@@ -17,6 +17,7 @@ import { JavaprComponent } from './javapr/javapr.component';
 import { AngularintroComponent } from './angularintro/angularintro.component';
 import { MysqlComponent } from './mysql/mysql.component';
 import { MongodbComponent } from './mongodb/mongodb.component';
+import { JavacollectionsComponent } from './javacollections/javacollections.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MongodbComponent } from './mongodb/mongodb.component';
     JavaprComponent,
     AngularintroComponent,
     MysqlComponent,
-    MongodbComponent
+    MongodbComponent,
+    JavacollectionsComponent
   ],
   imports: [
     BrowserModule,

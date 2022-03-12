@@ -12,6 +12,7 @@ import { AngularintroComponent } from './angularintro/angularintro.component';
 import { AdvancedjavaComponent } from './advancedjava/advancedjava.component';
 import { MysqlComponent } from './mysql/mysql.component';
 import { MongodbComponent } from './mongodb/mongodb.component';
+import { JavacollectionsComponent } from './javacollections/javacollections.component';
 
 const routes: Routes = [
   {path: 'piyush', component: EmployeeListComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'javapr', component: JavaprComponent},
   {path: 'angular', component: AngularintroComponent},
   {path: 'advancedjava', component: AdvancedjavaComponent},
+  {path: 'collections', component: JavacollectionsComponent},
   {path: 'mysql', component: MysqlComponent},
   {path: 'mongodb', component: MongodbComponent},
   {path: 'create-employee', component: CreateEmployeeComponent},
