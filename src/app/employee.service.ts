@@ -25,6 +25,10 @@ export class EmployeeService {
     return this.httpClient.post(`${this.baseURL}`, employee);
   }
 
+  swapEmployee(id1: number, id2: number): Observable<Employee[]>{
+    return this.httpClient.get<Employee[]>(`${this.baseURL}/${id1}/${id2}`);
+  }
+
   getEmployeeById(id: number): Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
   }
