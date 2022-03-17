@@ -15,25 +15,30 @@
     </div>
 </nav>
 
-<table class = "table table-striped">
-    <thead>
-        <tr>
-            <th> Question</th>
-            <th> Q. Type </th>
-            <th> Answer</th>
-            <th> Actions </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor = "let employee of employees | paginate:{itemsPerPage: 5, currentPage:employee}" >
-            <td> {{ employee.firstName }} </td>
-            <td> {{ employee.lastName }} </td>
-            <td> {{ employee.emailId | slice:0:20}}... </td>
-            <td>
-                <button (click) = "updateEmployee(employee.id)" class="btn btn-primary"> Update</button>
-                <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+<form #checkboxForm="ngForm" (submit)="swap()">
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th> Question</th>
+                <th> Q. Type </th>
+                <th> Answer</th>
+                <th> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let employee of employees | paginate:{itemsPerPage: 5, currentPage:employee}" >
+                <input type="checkbox" value="{{employee.id}}"  [(ngModel)]="employee.Checked" [name]="employee.firstName" [attr.disabled]="employee.id==1 ? true : null" />
+                <td> {{ employee.firstName }} </td>
+                <td> {{ employee.lastName }} </td>
+                <td> {{ employee.emailId | slice:0:20}}... </td>
+                <td>
+                    <button (click) = "updateEmployee(employee.id)" class="btn btn-primary"> Update</button>
+                    <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
+                    <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <input type="submit" value="Swap">
+</form>

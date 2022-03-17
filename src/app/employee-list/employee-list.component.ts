@@ -78,5 +78,5 @@ swapEmployee(id1:number, id2:number){
     this.employees = data;
   })
 
-}
+  }
 }

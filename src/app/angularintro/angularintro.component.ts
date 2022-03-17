@@ -44,4 +44,28 @@ export class AngularintroComponent implements OnInit {
       })
     }
   }
+  swap() {
+    console.log("Piyush");
+    console.log(this.employees);
+    var selectedItem:number[] = new Array(100);
+    var pos:number = 0;
+    for(var i = 0;i<this.employees.length;i++) { 
+      if(this.employees[i].Checked){
+        console.log("C "+this.employees[i].id);
+        selectedItem[pos] = this.employees[i].id;
+        pos++;
+      }
+   }
+  
+   var id1:number = selectedItem[0];
+   var id2:number = selectedItem[1];
+
+   this.swapEmployee(id1, id2);
+}
+swapEmployee(id1:number, id2:number){
+  this.employeeService.swapEmployee(id1, id2).subscribe( data => {
+    this.getEmployees();
+  })
+
+  }
 }
