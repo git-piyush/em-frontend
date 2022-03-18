@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 export class EmployeeListComponent implements OnInit {
   employee: Employee = new Employee();
   employees: Employee[];
-
+  users:any;
+  p: number = 1;
+  total: number = 0;
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
 
   ngOnInit(): void {
-    this.getEmployees();
+    //this.getEmployees();
+    this.getQuestions()
   }
 
   private getEmployees(){
@@ -79,4 +82,17 @@ swapEmployee(id1:number, id2:number){
   })
 
   }
+
+  pageChangeEvent(event: number){
+    this.p = event;
+    this.getQuestions();
+}
+
+getQuestions(){
+  this.employeeService.getQuestions(this.p)
+    .subscribe((response: any) => {
+      this.employees = response.data;
+      this.total = response.totalElement;
+    });
+} 
 }

@@ -8,6 +8,8 @@ import { Employee } from './employee';
 })
 export class EmployeeService {
 
+  
+
   private baseURL = "https://employeee-management.herokuapp.com/api/v1/piyush";
   //private baseURL = "http://localhost:8080/api/v1/piyush";
 
@@ -15,6 +17,10 @@ export class EmployeeService {
   
   getEmployeesList(): Observable<Employee[]>{
     return this.httpClient.get<Employee[]>(`${this.baseURL}`);
+  }
+
+  getQuestions(p: number) {
+    return this.httpClient.get<Employee[]>(`${this.baseURL}/employee/?pageNo=${p}`);
   }
 
   getEmployeesListByType(lastName: String): Observable<Employee[]>{
