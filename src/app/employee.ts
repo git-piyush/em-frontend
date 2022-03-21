@@ -4,4 +4,5 @@ export class Employee {
     lastName: string;
     emailId: string;
      Checked: string;
+  attachment: any;
 }

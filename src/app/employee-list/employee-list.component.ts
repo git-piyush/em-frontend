@@ -107,7 +107,7 @@ onFilechange(event: any) {
     console.log(id);
     if(this.file){
       this.employeeService.uploadFile(id, this.file).subscribe( data =>{
-        this.getEmployees();
+        location.reload();
       }
       , error => console.log(error));
     }else{
