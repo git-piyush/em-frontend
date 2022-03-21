@@ -27,11 +27,11 @@ export class EmployeeDetailsComponent implements OnInit {
     this.employeService.getEmployeeById(this.id).subscribe((data) => {
       this.employee = data;
       console.log(data.attachment);
-      if(data.attachment == null){
-        console.log("p");
+      if (data.attachment == null) {
+        console.log('p');
         this.buttonDisabled = true;
-      }else{
-        console.log("k");
+      } else {
+        console.log('k');
         this.buttonDisabled = false;
       }
     });
@@ -45,11 +45,11 @@ export class EmployeeDetailsComponent implements OnInit {
         .getNextQuestionByIdAndType(type, id)
         .subscribe((data) => {
           this.employee = data;
-          if(data.attachment == null){
-            console.log("p");
+          if (data.attachment == null) {
+            console.log('p');
             this.buttonDisabled = true;
-          }else{
-            console.log("k");
+          } else {
+            console.log('k');
             this.buttonDisabled = false;
           }
         });
@@ -57,11 +57,11 @@ export class EmployeeDetailsComponent implements OnInit {
       this.employee = new Employee();
       this.employeService.getNextQuestionById(id).subscribe((data) => {
         this.employee = data;
-        if(data.attachment == null){
-          console.log("p");
+        if (data.attachment == null) {
+          console.log('p');
           this.buttonDisabled = true;
-        }else{
-          console.log("k");
+        } else {
+          console.log('k');
           this.buttonDisabled = false;
         }
       });
@@ -76,11 +76,11 @@ export class EmployeeDetailsComponent implements OnInit {
         .getPreviousQuestionByIdAndType(type, id)
         .subscribe((data) => {
           this.employee = data;
-          if(data.attachment == null){
-            console.log("p");
+          if (data.attachment == null) {
+            console.log('p');
             this.buttonDisabled = true;
-          }else{
-            console.log("k");
+          } else {
+            console.log('k');
             this.buttonDisabled = false;
           }
         });
@@ -88,11 +88,9 @@ export class EmployeeDetailsComponent implements OnInit {
       this.employee = new Employee();
       this.employeService.getPreviousQuestionById(id).subscribe((data) => {
         this.employee = data;
-        if(data.attachment == null){
-          console.log("p");
+        if (data.attachment == null) {
           this.buttonDisabled = true;
-        }else{
-          console.log("k");
+        } else {
           this.buttonDisabled = false;
         }
       });
@@ -102,9 +100,4 @@ export class EmployeeDetailsComponent implements OnInit {
   updateEmployee(id: number) {
     this.router.navigate(['update-employee', id]);
   }
-
-  checkButton(employee){
-    
-  }
-
 }
