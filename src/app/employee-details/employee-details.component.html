@@ -10,12 +10,11 @@
         <label> <b> Answer: </b></label><br><textarea rows="15" cols="120">{{employee.emailId}}</textarea> 
     </div>
     <div>
-        <button (click) = "getPreviousQuestionByIdAndType(employee.lastName,employee.id)" class = "btn btn-info" style="margin-left: 10px">Previous Question</button>
-        <button (click) = "getNextQuestionByIdAndType(employee.lastName,employee.id)" class = "btn btn-info" style="margin-left: 10px">Next Question</button>
-        <button (click) = "updateEmployee(employee.id)" class="btn btn-primary" style="margin-left: 10px">Update</button>
+        <button (click) = "getPreviousQuestionByIdAndType(employee.lastName,employee.id)" class = "btn btn-success" style="margin-left: 10px">&laquo; Previous Question</button>
+        <button (click) = "getNextQuestionByIdAndType(employee.lastName,employee.id)" class = "btn btn-success" style="margin-left: 10px">Next Question &raquo;</button>
+        <button (click) = "updateEmployee(employee.id)" class="btn btn-success" style="margin-left: 10px">Update</button>
 
-
-        <a href="http://localhost:8080/api/v1/piyush/download/{{ employee.id }}"><button type="button" [disabled]= "buttonDisabled">Download Attachment</button></a>
+        <a href="http://localhost:8080/api/v1/piyush/download/{{ employee.id }}"><button type="button" [disabled]= "buttonDisabled" class="btn btn-success" style="margin-left: 10px">Download Attachment</button></a>
         
     </div>
 </div>
