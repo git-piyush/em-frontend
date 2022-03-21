@@ -24,6 +24,7 @@
                 <th> Q. Type </th>
                 <th> Answer</th>
                 <th> Actions </th>
+                <th> Image </th>
             </tr>
         </thead>
         <tbody>
@@ -34,8 +35,12 @@
                 <td> {{ employee.emailId | slice:0:20}}... </td>
                 <td>
                     <button (click) = "updateEmployee(employee.id)" class="btn btn-primary"> Update</button>
-                    <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete</button>
-                    <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 10px"> View</button>
+                    <button (click) = "deleteEmployee(employee.id)" class = "btn btn-danger" style="margin-left: 5px"> Delete</button>
+                    <button (click) = "employeeDetails(employee.id)" class = "btn btn-info" style="margin-left: 5px"> View</button>
+                </td>
+                <td>
+                    <input type="file" name="img" (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile" />
+                    <button (click)="upload(employee.id)" type="button" class="btn btn-primary"  > Upload</button>
                 </td>
             </tr>
         </tbody>

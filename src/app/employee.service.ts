@@ -7,11 +7,9 @@ import { Employee } from './employee';
   providedIn: 'root'
 })
 export class EmployeeService {
-
   
-
   private baseURL = "https://employeee-management.herokuapp.com/api/v1/piyush";
-  //private baseURL = "http://localhost:8080/api/v1/piyush";
+ // private baseURL = "http://localhost:8080/api/v1/piyush";
 
   constructor(private httpClient: HttpClient) { }
   
@@ -39,6 +37,10 @@ export class EmployeeService {
     return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
   }
 
+  downloadAttachment(id: number) {
+
+  }
+
   getNextQuestionById(id: number): Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.baseURL}/next/${id}`);
   }
@@ -60,6 +62,13 @@ export class EmployeeService {
 
   updateEmployee(id: number, employee: Employee): Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}`, employee);
+  }
+
+  uploadFile(id: number, file: File) {
+    let formParams = new FormData();
+    formParams.append('file', file);
+
+    return this.httpClient.put(`${this.baseURL}/upload/${id}`, formParams);
   }
 
   deleteEmployee(id: number): Observable<Object>{

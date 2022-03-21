@@ -13,6 +13,8 @@ export class EmployeeListComponent implements OnInit {
   users:any;
   p: number = 1;
   total: number = 0;
+  file: File = null;
+
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
 
@@ -95,4 +97,21 @@ getQuestions(){
       this.total = response.totalElement;
     });
 } 
+
+onFilechange(event: any) {
+  console.log(event.target.files[0])
+  this.file = event.target.files[0]
+  }
+
+  upload(id:number) {
+    console.log(id);
+    if(this.file){
+      this.employeeService.uploadFile(id, this.file).subscribe( data =>{
+        this.getEmployees();
+      }
+      , error => console.log(error));
+    }else{
+
+    }
+  }
 }

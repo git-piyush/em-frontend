@@ -13,5 +13,7 @@
         <button (click) = "getPreviousQuestionByIdAndType(employee.lastName,employee.id)" class = "btn btn-info" style="margin-left: 10px">Previous Question</button>
         <button (click) = "getNextQuestionByIdAndType(employee.lastName,employee.id)" class = "btn btn-info" style="margin-left: 10px">Next Question</button>
         <button (click) = "updateEmployee(employee.id)" class="btn btn-primary" style="margin-left: 10px">Update</button>
+        <a href="http://localhost:8080/api/v1/piyush/download/{{ employee.id }}"><button (click) = "downloadAttachment(employee.id)">Download Attachment</button></a>
+        
     </div>
 </div>
