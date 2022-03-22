@@ -13,6 +13,7 @@ export class EmployeeDetailsComponent implements OnInit {
   id: number;
   employee: Employee;
   public buttonDisabled: boolean;
+  buttonText:string;
   constructor(
     private route: ActivatedRoute,
     private employeService: EmployeeService,
@@ -28,10 +29,10 @@ export class EmployeeDetailsComponent implements OnInit {
       this.employee = data;
       console.log(data.attachment);
       if (data.attachment == null) {
-        console.log('p');
+        this.buttonText = "Attachment Not Available";
         this.buttonDisabled = true;
       } else {
-        console.log('k');
+        this.buttonText = "See Attachment";
         this.buttonDisabled = false;
       }
     });
@@ -46,10 +47,10 @@ export class EmployeeDetailsComponent implements OnInit {
         .subscribe((data) => {
           this.employee = data;
           if (data.attachment == null) {
-            console.log('p');
+            this.buttonText = "Attachment Not Available";
             this.buttonDisabled = true;
           } else {
-            console.log('k');
+            this.buttonText = "See Attachment";
             this.buttonDisabled = false;
           }
         });
@@ -58,10 +59,10 @@ export class EmployeeDetailsComponent implements OnInit {
       this.employeService.getNextQuestionById(id).subscribe((data) => {
         this.employee = data;
         if (data.attachment == null) {
-          console.log('p');
+          this.buttonText = "Attachment Not Available";
           this.buttonDisabled = true;
         } else {
-          console.log('k');
+          this.buttonText = "See Attachment";
           this.buttonDisabled = false;
         }
       });
@@ -77,10 +78,10 @@ export class EmployeeDetailsComponent implements OnInit {
         .subscribe((data) => {
           this.employee = data;
           if (data.attachment == null) {
-            console.log('p');
+            this.buttonText = "Attachment Not Available";
             this.buttonDisabled = true;
           } else {
-            console.log('k');
+            this.buttonText = "See Attachment";
             this.buttonDisabled = false;
           }
         });
@@ -89,8 +90,10 @@ export class EmployeeDetailsComponent implements OnInit {
       this.employeService.getPreviousQuestionById(id).subscribe((data) => {
         this.employee = data;
         if (data.attachment == null) {
+          this.buttonText = "Attachment Not Available";
           this.buttonDisabled = true;
         } else {
+          this.buttonText = "See Attachment";
           this.buttonDisabled = false;
         }
       });
