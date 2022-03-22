@@ -100,4 +100,12 @@ export class EmployeeDetailsComponent implements OnInit {
   updateEmployee(id: number) {
     this.router.navigate(['update-employee', id]);
   }
+
+  download(id:number){
+   const downloadURL : string = "https://em-frontend.herokuapp.com/api/v1/piyush/download/"+id;
+
+   window.location.href=downloadURL;
+
+  }
+
 }
