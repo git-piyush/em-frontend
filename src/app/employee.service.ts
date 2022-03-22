@@ -8,8 +8,9 @@ import { Employee } from './employee';
 })
 export class EmployeeService {
   
-  private baseURL = "https://employeee-management.herokuapp.com/api/v1/piyush";
- // private baseURL = "http://localhost:8080/api/v1/piyush";
+  
+private baseURL = "https://employeee-management.herokuapp.com/api/v1/piyush";
+ //private baseURL = "http://localhost:8080/api/v1/piyush";
 
   constructor(private httpClient: HttpClient) { }
   
@@ -35,10 +36,6 @@ export class EmployeeService {
 
   getEmployeeById(id: number): Observable<Employee>{
     return this.httpClient.get<Employee>(`${this.baseURL}/${id}`);
-  }
-
-  downloadAttachment(id: number) {
-
   }
 
   getNextQuestionById(id: number): Observable<Employee>{
@@ -75,5 +72,17 @@ export class EmployeeService {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
+  downloadFile(id:number): Observable<Blob> {
+
+    const url = `${this.baseURL}/download/${id}`;
+
+const httpOptions = {
+  'responseType'  : 'arraybuffer' as 'json'
+   //'responseType'  : 'blob' as 'json'        //This also worked
+};
+    return this.httpClient.get<any>(url, httpOptions);
+    // return this.httpClient.get(url, { responseType: 'blob' });
+
+  }
   
 }

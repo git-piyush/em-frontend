@@ -101,11 +101,15 @@ export class EmployeeDetailsComponent implements OnInit {
     this.router.navigate(['update-employee', id]);
   }
 
-  download(id:number){
-   const downloadURL : string = "https://em-frontend.herokuapp.com/api/v1/piyush/download/"+id;
-
-   window.location.href=downloadURL;
-
+  download(id:number) {
+    console.log(id);
+    this.employeService.downloadFile(id).subscribe(response => {
+			let file = new Blob([response], { type: 'image/png' });
+      var fileURL = URL.createObjectURL(file);
+			window.open(fileURL);
+			//fileSaver.saveAs(blob, 'employees.json');
+		}), error => console.log('Error downloading the file'),
+                 () => console.info('File downloaded successfully');
   }
 
 }
